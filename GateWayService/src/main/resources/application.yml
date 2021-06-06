@@ -1,0 +1,20 @@
+server:
+  port: 12999
+spring:  application:    name: GateWay  cloud:    gateway:      routes:      - id: UserAPIID
+        uri:          lb://UserAPI
+        predicates:        - Path=/users/**
+      -  id: DepartmentAPIID
+         uri:
+           lb://DepartmentAPI
+         predicates:         - Path=/departments/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:12000/eureka
+  instance:
+    hostname: localhost
+
+    

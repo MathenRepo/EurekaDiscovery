@@ -1,0 +1,28 @@
+server:
+ port: 12002
+spring:
+  application:
+    name: UserAPI
+  h2:
+    console:
+      enabled: true
+      path: /h2-UserDB
+  datasource:
+    url: jdbc:h2:mem:UserDB
+  sql:
+    init:
+      platform: true
+  jpa:
+    show-sql: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:      defaultZone: http://localhost:12000/eureka
+  instance:
+    hostname: localhost
+    
+# Logging Levels trace,debug,info,warn,error
+logging:
+  level:
+    root: info
